@@ -1,5 +1,5 @@
 function e --description 'Open with $EDITOR'
-    if set -q $EDITOR
+    if set -q EDITOR
         eval $EDITOR $argv
     else
         vim $argv
