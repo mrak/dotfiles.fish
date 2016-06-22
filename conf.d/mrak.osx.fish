@@ -1,7 +1,7 @@
 if [ (uname) = "Darwin" ]
     set -gx LSCOLORS exbxfxdxcxxxxxCxCxcaea
-    set -gx EDITOR /usr/local/bin/vim
-    set -gx VISUAL /usr/local/bin/vim
+    set -gx EDITOR /usr/local/bin/nvim
+    set -gx VISUAL /usr/local/bin/nvim
     set -gx ANDROID_HOME /usr/local/opt/android-sdk
 
     function __start_keychain
