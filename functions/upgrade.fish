@@ -5,6 +5,6 @@ switch (uname)
         end
     case Darwin
         function upgrade --description 'Update and upgrade all brew packages'
-            brew update; and brew upgrade --all
+            brew update; and brew upgrade
         end
 end
