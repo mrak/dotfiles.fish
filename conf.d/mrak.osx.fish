@@ -7,7 +7,7 @@ if [ (uname) = "Darwin" ]
     function __start_keychain
         set -l keychain_dir $XDG_CACHE_HOME/keychain
         if status --is-interactive
-            keychain --dir $keychain_dir --agents ssh,gpg --quiet id_ed25519 bt_rsa id_rsa
+            keychain --dir $keychain_dir --agents ssh,gpg --quiet --noask
             source $keychain_dir/(hostname)-fish
             source $keychain_dir/(hostname)-fish-gpg
         end
