@@ -2,7 +2,7 @@ function __mrak_prompt_user
     if [ $USER = "root" ]
         set_color red
     else
-        set_color blue
+        set_color $fish_color_user
     end
 
     printf $USER
@@ -11,7 +11,7 @@ function __mrak_prompt_user
         set_color --bold black
         printf @
         set_color normal
-        set_color magenta
+        set_color $fish_color_host
         printf '%s' (hostname)
     end
 
