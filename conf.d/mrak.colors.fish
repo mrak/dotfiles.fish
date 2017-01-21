@@ -11,7 +11,7 @@ set fish_color_error ff0000
 set fish_color_escape --bold
 set fish_color_history_current --bold
 set fish_color_host magenta
-set fish_color_match --background=brblue
+set fish_color_match green
 set fish_color_normal normal
 set fish_color_operator bryellow
 set fish_color_param 00afff
