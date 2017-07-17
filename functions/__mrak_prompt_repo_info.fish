@@ -26,7 +26,7 @@ end
 
 function __git_state --description "git state for fish prompt"
     set -g __mrak_prompt_symbol "∓" "yellow"
-    type -f git >/dev/null; or return
+    command -s git >/dev/null; or return
 
     set -l __git_dir $argv[1]
     set -l git_dot_dir $__git_dir/.git
@@ -132,7 +132,7 @@ end
 
 function __svn_state --description "svn state for fish prompt"
     set -g __mrak_prompt_symbol "⚡" "blue"
-    type -f svn >/dev/null; or return
+    command -s >/dev/null; or return
 
     set_color blue
     svn info | awk '$1 == "Revision:" { print $2 }' | tr -d \n
@@ -156,7 +156,7 @@ end
 
 function __hg_state --description "hg state for fish prompt"
     set -g __mrak_prompt_symbol "☿" "magenta"
-    type -f hg >/dev/null; or return
+    command -s hg; or return
 
     set_color magenta;
     hg branch ^/dev/null | tr -d \n
@@ -180,7 +180,7 @@ end
 
 function __darcs_state --description "darcs state for fish prompt"
     set -g __mrak_prompt_symbol "∗" "cyan"
-    type -f darcs >/dev/null; or return
+    command -s darcs; or return
 
     set -l modified "±"
     set -l added "+"
