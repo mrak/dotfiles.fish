@@ -3,26 +3,10 @@ status --is-interactive; or exit
 mesg n
 set Z_DATA $XDG_DATA_HOME/z/data
 
-set fry_rubies $XDG_DATA_LIB/ruby
 eval (python -m virtualfish ^/dev/null)
 
-if [ -d ~/.nodenv ]
-    set -gx PATH ~/.nodenv/bin ~/.nodenv/shims $PATH
-    set -gx NODENV_SHELL fish
-    ln -s ~/.nodenv/completions/nodenv.fish ~/.config/fish/completions/nodenv.fish ^/dev/null
-    command nodenv rehash ^/dev/null
-    function nodenv
-        set command $argv[1]
-        set -e argv[1]
-
-        switch "$command"
-        case rehash shell
-            source (nodenv "sh-$command" $argv|psub)
-        case '*'
-            command nodenv "$command" $argv
-        end
-    end
-end
+[ -f ~/.asdf/completions/asdf.fish ]; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions/ ^/dev/null
+[ -f ~/.asdf/asdf.fish ]; and source ~/.asdf/asdf.fish
 
 # if the terminal supports it, set keyboard_transmit mode
 # fixes st
