@@ -1,4 +1,5 @@
 function fish_user_key_bindings
+    type -q fzf_key_bindings; and fzf_key_bindings
     bind \es '_sudo_edit'
     bind \e. 'history-token-search-backward'
     bind \ee '_edit_cmd; commandline -f execute'
