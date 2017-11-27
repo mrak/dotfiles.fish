@@ -1,5 +1,5 @@
 function e --description 'Open with $EDITOR'
     if set -q EDITOR
-        eval $EDITOR $argv
+        eval $EDITOR (string escape -- $argv)
     end
 end
