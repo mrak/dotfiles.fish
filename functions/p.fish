@@ -1,8 +1,8 @@
-complete --command p --wraps pacaur
+complete --command p --wraps pacman
 
-function p --description pacaur
-    if command -qs pacaur
-        command pacaur $argv
+function p --description "pacman, or AUR helper"
+    if command -qs trizen
+        command trizen $argv
     else
         command pacman $argv
     end
