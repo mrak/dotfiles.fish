@@ -1,6 +1,6 @@
 function npm-exec --description "run executable installed locally by npm"
     begin
-        set -lx PATH (npm bin) $PATH
+        set -lxp PATH (npm bin)
         eval $argv
     end
 end
