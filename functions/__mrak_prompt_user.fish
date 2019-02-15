@@ -12,7 +12,7 @@ function __mrak_prompt_user
         printf @
         set_color normal
         set_color $fish_color_host
-        printf '%s' (hostname)
+        printf '%s' $hostname
     end
 
     set_color normal
