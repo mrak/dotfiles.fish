@@ -3,21 +3,21 @@ status --is-interactive; or exit
 mesg n
 set Z_DATA $XDG_DATA_HOME/z/data
 
-eval (python -m virtualfish ^/dev/null)
+eval (python -m virtualfish 2>/dev/null)
 
-[ -f ~/.asdf/completions/asdf.fish ]; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions/ ^/dev/null
+[ -f ~/.asdf/completions/asdf.fish ]; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions/ 2>/dev/null
 [ -f ~/.asdf/asdf.fish ]; and source ~/.asdf/asdf.fish
 [ -f /usr/local/opt/fzf/shell/key-bindings.fish ]; and source /usr/local/opt/fzf/shell/key-bindings.fish
 
 # if the terminal supports it, set keyboard_transmit mode
 # fixes st
-if tput smkx ^/dev/null
+if tput smkx 2>/dev/null
     function mrak_disable_keypad_transmit --on-event fish_preexec
-        tput rmkx ^/dev/null
+        tput rmkx 2>/dev/null
     end
 
     function mrak_enable_keypad_transmit --on-event fish_postexec
-        tput smkx ^/dev/null
+        tput smkx 2>/dev/null
     end
 end
 

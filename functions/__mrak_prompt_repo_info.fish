@@ -74,9 +74,9 @@ function __git_state --description "git state for fish prompt"
 
     set -l g ""
     if [ (uname) = Darwin ]
-        set g (git -C $__git_dir status --porcelain -b ^/dev/null)
+        set g (git -C $__git_dir status --porcelain -b 2>/dev/null)
     else
-        set g (git -C $__git_dir status --porcelain -b | uniq -w 2 ^/dev/null)
+        set g (git -C $__git_dir status --porcelain -b | uniq -w 2 2>/dev/null)
     end
 
     set_color yellow
@@ -146,11 +146,11 @@ function __svn_state --description "svn state for fish prompt"
     printf ' '
     set_color --bold black
     # use string for ± since tr doesn't respect unicode
-    svn status ^/dev/null | string sub -l 1 \
-                          | sort -u \
-                          | tr -d \n \
-                          | string replace M $modified \
-                          | tr 'AD?!' {$added}{$removed}{$untracked}{$missing}
+    svn status 2>/dev/null | string sub -l 1 \
+                           | sort -u \
+                           | tr -d \n \
+                           | string replace M $modified \
+                           | tr 'AD?!' {$added}{$removed}{$untracked}{$missing}
     set_color normal
 end
 
@@ -159,7 +159,7 @@ function __hg_state --description "hg state for fish prompt"
     command -s hg; or return
 
     set_color magenta;
-    hg branch ^/dev/null | tr -d \n
+    hg branch 2>/dev/null | tr -d \n
 
     set -l modified "±"
     set -l added "+"
@@ -170,11 +170,11 @@ function __hg_state --description "hg state for fish prompt"
     printf ' '
     set_color --bold black
     # use string for ± since tr doesn't respect unicode
-    hg status ^/dev/null | string sub -l 1 \
-                         | sort -u \
-                         | tr -d \n \
-                         | string replace M $modified \
-                         | tr 'AD?!' {$added}{$removed}{$untracked}{$missing}
+    hg status 2>/dev/null | string sub -l 1 \
+                          | sort -u \
+                          | tr -d \n \
+                          | string replace M $modified \
+                          | tr 'AD?!' {$added}{$removed}{$untracked}{$missing}
     set_color normal
 end
 
@@ -191,10 +191,10 @@ function __darcs_state --description "darcs state for fish prompt"
 
     set_color --bold black
     # use string for ± since tr doesn't respect unicode
-    darcs whatsnew -s ^/dev/null | string sub -l 1 \
-                                 | sort -u \
-                                 | tr -d \n \
-                                 | string replace M $modified \
-                                 | tr 'AR' {$added}{$removed}
+    darcs whatsnew -s 2>/dev/null | string sub -l 1 \
+                                  | sort -u \
+                                  | tr -d \n \
+                                  | string replace M $modified \
+                                  | tr 'AR' {$added}{$removed}
     set_color normal
 end
