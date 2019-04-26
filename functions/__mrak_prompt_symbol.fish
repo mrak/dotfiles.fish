@@ -25,7 +25,7 @@ function __mrak_prompt_symbol
 
     set -l job_count (count (jobs))
     if [ ! $job_count = 0 ]
-        set_color --bold black
+        set_color brblack
         printf ' (%s)' $job_count
     end
 

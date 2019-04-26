@@ -8,7 +8,7 @@ function __mrak_prompt_user
     printf $USER
 
     if set -q SSH_CONNECTION
-        set_color --bold black
+        set_color brblack
         printf @
         set_color normal
         set_color $fish_color_host

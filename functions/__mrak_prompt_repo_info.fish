@@ -118,13 +118,13 @@ function __git_state --description "git state for fish prompt"
         end
     end
 
-    set_color --bold black
+    set_color brblack
     printf ' '
     for state in staged modified deleted untracked
         [ $$state[1][2] = true ]; and printf $$state[1][1]
     end
     if [ $unmerged[2] = true ]
-        set_color --bold red
+        set_color brred
         printf $unmerged[1]
     end
     set_color normal
@@ -144,7 +144,7 @@ function __svn_state --description "svn state for fish prompt"
     set -l untracked "?"
 
     printf ' '
-    set_color --bold black
+    set_color brblack
     # use string for ± since tr doesn't respect unicode
     svn status 2>/dev/null | string sub -l 1 \
                            | sort -u \
@@ -168,7 +168,7 @@ function __hg_state --description "hg state for fish prompt"
     set -l untracked "?"
 
     printf ' '
-    set_color --bold black
+    set_color brblack
     # use string for ± since tr doesn't respect unicode
     hg status 2>/dev/null | string sub -l 1 \
                           | sort -u \
@@ -189,7 +189,7 @@ function __darcs_state --description "darcs state for fish prompt"
     set_color cyan
     printf '%s ' darcs
 
-    set_color --bold black
+    set_color brblack
     # use string for ± since tr doesn't respect unicode
     darcs whatsnew -s 2>/dev/null | string sub -l 1 \
                                   | sort -u \
