@@ -5,6 +5,7 @@ set Z_DATA $XDG_DATA_HOME/z/data
 
 eval (python -m virtualfish 2>/dev/null)
 
+set -x PATH $HOME/.local/bin $HOME/.cargo/bin $GOPATH/bin /usr/local/sbin /usr/local/bin $PATH
 [ -f ~/.asdf/completions/asdf.fish ]; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions/ 2>/dev/null
 [ -f ~/.asdf/asdf.fish ]; and source ~/.asdf/asdf.fish
 [ -f /usr/local/opt/fzf/shell/key-bindings.fish ]; and source /usr/local/opt/fzf/shell/key-bindings.fish
