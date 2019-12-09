@@ -1,6 +1,6 @@
 function __mrak_prompt_symbol
     #set -l symbol ∫
-    set -l symbol "⋊>"
+    set -l symbol "λ"
 
     if [ $USER = "root" ]
         set_color red
