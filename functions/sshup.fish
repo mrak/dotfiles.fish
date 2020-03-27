@@ -1,8 +1,8 @@
 function sshup --description 'Add all ssh keys to the agent'
-	set -q SSH_AUTH_SOCK; or return
+    set -q SSH_AUTH_SOCK; or return
     set -l to_load
 
-    set -l keys $HOME/.ssh/{id_rsa,id_ed25519,bt_rsa}
+    set -l keys (find ~/.ssh/keys.d -type f | grep -vE '(\.git|\.pub)')
     set -l loaded_keys (ssh-add -l | cut -d' ' -f2)
 
     if [ $status = 1 ]
