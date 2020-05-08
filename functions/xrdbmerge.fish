@@ -1,4 +1,4 @@
 function xrdbmerge
-    xrdb -quiet -merge $XDG_CONFIG_HOME/xrdb/Xresources $argv
+    xrdb -quiet -merge $HOME/.Xresources $argv
 end
 
