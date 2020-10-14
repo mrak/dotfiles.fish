@@ -1,5 +1,5 @@
 function fish_prompt
-    set -g __mrak_prompt_status $status
+    set -g __mrak_prompt_status (kill -l $status)
 
     # reset cursor to block
     switch $TERM
