@@ -6,7 +6,7 @@ function fish_prompt
         set -g __mrak_prompt_status "X"
     else if [ $lstatus = 127 ]
         set -g __mrak_prompt_status "?"
-    else if [ $lstatus = 127 ]
+    else if [ $lstatus = 128 ]
         set -g __mrak_prompt_status 128
     else if [ $lstatus = 255 ]
         set -g __mrak_prompt_status "X"
