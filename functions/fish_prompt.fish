@@ -1,20 +1,5 @@
 function fish_prompt
-    set -l lstatus $status
-    if [ $lstatus -lt 126 ]
-        set -g __mrak_prompt_status $lstatus
-    else if [ $lstatus = 126 ]
-        set -g __mrak_prompt_status "X"
-    else if [ $lstatus = 127 ]
-        set -g __mrak_prompt_status "?"
-    else if [ $lstatus = 128 ]
-        set -g __mrak_prompt_status 128
-    else if [ $lstatus = 255 ]
-        set -g __mrak_prompt_status "X"
-    else if kill -l (math $lstatus - 128) >/dev/null 2>&1
-        set -g __mrak_prompt_status (kill -l (math $lstatus - 128))
-    else
-        set -g __mrak_prompt_status $lstatus
-    end
+    set -g __mrak_prompt_status (fish_status_to_signal $status)
 
     # reset cursor to block
     switch $TERM
