@@ -98,7 +98,7 @@ function __git_state --description "git state for fish prompt"
     [ (count $g) -eq 1 ]; and return
     for l in $g[2..-1]
         switch (string sub -l 2 $l)
-            case '??'
+            case '\?\?'
                 set untracked[2] true
             case '\!\!'
             case DD AU UD UA DU AA UU
