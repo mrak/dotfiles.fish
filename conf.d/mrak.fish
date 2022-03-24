@@ -7,7 +7,9 @@ eval (python -m virtualfish 2>/dev/null)
 
 [ -f ~/.asdf/completions/asdf.fish ]; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions/ 2>/dev/null
 [ -f ~/.asdf/asdf.fish ]; and source ~/.asdf/asdf.fish
-[ -f /usr/local/opt/fzf/shell/key-bindings.fish ]; and source /usr/local/opt/fzf/shell/key-bindings.fish
+for fzf_dir in /opt/homebrew/opt/fzf/ /usr/local/opt/fzf/
+    [ -f "$fzf_dir"/shell/key-bindings.fish ]; and source "$fzf_dir"/shell/key-bindings.fish
+end
 
 # if the terminal supports it, set keyboard_transmit mode
 # fixes st
