@@ -3,7 +3,7 @@ status --is-interactive; or exit
 mesg n
 set Z_DATA $XDG_DATA_HOME/z/data
 
-fish_add_path -P -g "$XDG_DATA_BIN" "$HOME/.cargo/bin" "$GOPATH/bin" /opt/homebrew/bin
+fish_add_path -P -m -g "$XDG_DATA_BIN" "$HOME/.cargo/bin" "$GOPATH/bin" /opt/homebrew/bin
 
 set -x EDITOR /usr/bin/vim
 command -q nvim; and set -x EDITOR (command -v nvim)
