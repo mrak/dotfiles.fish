@@ -38,6 +38,38 @@ if tput smkx 2>/dev/null
     end
 end
 
+set -x GPG_TTY (tty)
+
+switch (uname)
+    case Linux
+        [ -f "$XDG_CONFIG_HOME/sh/dircolors" ]; and command -q dircolors; and eval (dircolors -c "$XDG_CONFIG_HOME/sh/dircolors")
+        if [ "$TERM" = linux ]
+            printf "]P0262626"
+            printf "]P1AC4142"
+            printf "]P24E9A06"
+            printf "]P3C4A000"
+            printf "]P43465A4"
+            printf "]P575507B"
+            printf "]P606989A"
+            printf "]P7D3D7CF"
+
+            printf ']P8555753'
+            printf "]P9D24545"
+            printf "]PA8AE234"
+            printf "]PBFCE94F"
+            printf "]PC729FCF"
+            printf "]PDAF7FA8"
+            printf "]PE34E2E2"
+            printf "]PFF5F5F5"
+
+            clear
+            exec tmux
+        end
+    case Darwin
+        set -x LSCOLORS exbxfxdxcxxxxxCxCxcaea
+        [ "$TERM" = alacritty ]; and exec tmux
+end
+
 # colorscheme
 set fish_color_user blue
 set fish_color_host magenta
