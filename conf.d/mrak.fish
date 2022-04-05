@@ -3,12 +3,27 @@ status --is-interactive; or exit
 mesg n
 set Z_DATA $XDG_DATA_HOME/z/data
 
-eval (python -m virtualfish 2>/dev/null)
+fish_add_path -P -g "$XDG_DATA_BIN" "$HOME/.cargo/bin" "$GOPATH/bin" /opt/homebrew/bin
 
-[ -f ~/.asdf/completions/asdf.fish ]; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions/ 2>/dev/null
-[ -f ~/.asdf/asdf.fish ]; and source ~/.asdf/asdf.fish
+set -x EDITOR /usr/bin/vim
+command -q nvim; and set -x EDITOR (command -v nvim)
+set -x VISUAL $EDITOR
+set -x DIFFPROG "$EDITOR -d"
+
+command -q python; and eval (python -m virtualfish 2>/dev/null)
+
+for asdf_dir in ~/.asdf /opt/asdf-vm
+    if [ -f "$asdf_dir"/asdf.fish ]
+        source "$asdf_dir"/asdf.fish
+        ln -s "$asdf_dir"/completions/asdf.fish ~/.config/fish/completions/ 2>/dev/null
+        break
+    end
+end
 for fzf_dir in /opt/homebrew/opt/fzf/ /usr/local/opt/fzf/
-    [ -f "$fzf_dir"/shell/key-bindings.fish ]; and source "$fzf_dir"/shell/key-bindings.fish
+    if [ -f "$fzf_dir"/shell/key-bindings.fish ]
+        source "$fzf_dir"/shell/key-bindings.fish
+        break
+    end
 end
 
 # if the terminal supports it, set keyboard_transmit mode
