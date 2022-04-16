@@ -4,7 +4,7 @@ function __mrak_prompt_symbol
 
     if [ $USER = "root" ]
         set_color red
-        set symbol #
+        set symbol '#'
     else
         if [ $__mrak_prompt_status = 0 ]
             set_color green
