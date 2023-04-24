@@ -1,4 +1,8 @@
 function orphans --description "find packages that are uneeded"
-    sudo pacman -Rs (pacman -Qqdt) $argv
+    if [ (uname) = "Darwin" ]
+        brew autoremove
+    else
+        sudo pacman -Rs (pacman -Qqdt) $argv
+    end
 end
 
