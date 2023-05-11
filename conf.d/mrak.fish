@@ -61,6 +61,12 @@ set fish_color_redirection af87ff
 set fish_color_search_match bryellow --background=brblack
 set fish_color_selection white --bold --background=brblack
 set fish_color_valid_path --underline
+# Emulates vim's cursor shape behavior
+set fish_cursor_default block
+set fish_cursor_insert line
+set fish_cursor_replace underscore
+set fish_cursor_replace_one underscore
+set fish_cursor_visual block
 
 switch (uname)
     case Linux
