@@ -7,6 +7,8 @@ function fish_mode_prompt
       echo 'I '
     case replace_one
       echo 'R '
+    case replace
+      echo 'R '
     case visual
       echo 'V '
     case '*'
