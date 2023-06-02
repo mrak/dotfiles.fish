@@ -95,5 +95,5 @@ switch (uname)
         end
     case Darwin
         set -x LSCOLORS exbxfxdxcxxxxxCxCxcaea
-        [ "$TERM" = alacritty ]; and exec tmux
+        [ -z "$TMUX" ]; and exec tmux new -As0
 end
