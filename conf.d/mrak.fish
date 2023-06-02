@@ -11,7 +11,7 @@ set Z_DATA $XDG_DATA_HOME/z/data
 
 command -q python; and eval (python -m virtualfish 2>/dev/null)
 
-for asdf_dir in /opt/asdf-vm ~/.asdf
+for asdf_dir in ~/.asdf /opt/asdf-vm
     if [ -f "$asdf_dir"/asdf.fish ]
         source "$asdf_dir"/asdf.fish
         ln -s "$asdf_dir"/completions/asdf.fish ~/.config/fish/completions/ 2>/dev/null
