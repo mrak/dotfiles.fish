@@ -1,15 +1,8 @@
 status is-interactive; or exit
 
-fish_add_path -P -m -g "$XDG_DATA_BIN" "$HOME/.cargo/bin" "$GOPATH/bin" /opt/homebrew/bin
-set -x EDITOR /usr/bin/vim
-command -q nvim; and set -x EDITOR (command -v nvim)
-set -x VISUAL $EDITOR
-set -x DIFFPROG "$EDITOR -d"
-
+fish_add_path -P -m -g "$HOME/.cargo/bin" "$GOPATH/bin" /opt/homebrew/bin
 mesg n
 set Z_DATA $XDG_DATA_HOME/z/data
-
-command -q python; and eval (python -m virtualfish 2>/dev/null)
 
 for asdf_dir in ~/.asdf /opt/asdf-vm
     if [ -f "$asdf_dir"/asdf.fish ]
@@ -24,6 +17,14 @@ for fzf_dir in /opt/homebrew/opt/fzf/ /usr/local/opt/fzf/
         break
     end
 end
+
+fish_add_path -P -m -g "$XDG_DATA_BIN"
+set -x EDITOR /usr/bin/vim
+command -q nvim; and set -x EDITOR (command -v nvim)
+set -x VISUAL $EDITOR
+set -x DIFFPROG "$EDITOR -d"
+
+command -q python; and eval (python -m virtualfish 2>/dev/null)
 
 # if the terminal supports it, set keyboard_transmit mode
 # fixes st
