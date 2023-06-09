@@ -92,9 +92,8 @@ switch (uname)
             printf "]PFF5F5F5"
 
             clear
-            exec tmux
         end
     case Darwin
         set -x LSCOLORS exbxfxdxcxxxxxCxCxcaea
-        [ -z "$TMUX" ]; and exec tmux new -As0
 end
+[ -z "$TMUX" ]; and exec tmux new -As0
