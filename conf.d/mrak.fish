@@ -19,10 +19,10 @@ for fzf_dir in /opt/homebrew/opt/fzf/ /usr/local/opt/fzf/
 end
 
 fish_add_path -P -m -g "$XDG_DATA_BIN"
-set -x EDITOR /usr/bin/vim
-command -q nvim; and set -x EDITOR (command -v nvim)
-set -x VISUAL $EDITOR
-set -x DIFFPROG "$EDITOR -d"
+#set -x EDITOR /usr/bin/vim
+#command -q nvim; and set -x EDITOR (command -v nvim)
+#set -x VISUAL $EDITOR
+#set -x DIFFPROG "$EDITOR -d"
 
 command -q python; and eval (python -m virtualfish 2>/dev/null)
 
