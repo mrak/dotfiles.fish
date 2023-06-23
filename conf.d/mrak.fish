@@ -96,4 +96,4 @@ switch (uname)
     case Darwin
         set -x LSCOLORS exbxfxdxcxxxxxCxCxcaea
 end
-[ -z "$TMUX" ]; and exec tmux new -As0
+command -q tmux; and [ -z "$TMUX" ]; and exec tmux new -As0
