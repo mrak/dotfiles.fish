@@ -69,6 +69,8 @@ set fish_cursor_replace underscore
 set fish_cursor_replace_one underscore
 set fish_cursor_visual block
 
+set -x JQ_COLORS "0;90:0;37:0;37:0;37:0;32:0;97:0;97"
+
 switch (uname)
     case Linux
         [ -f "$XDG_CONFIG_HOME/sh/dircolors" ]; and command -q dircolors; and eval (dircolors -c "$XDG_CONFIG_HOME/sh/dircolors")
