@@ -40,6 +40,8 @@ end
 
 set -x GPG_TTY (tty)
 
+#
+fish_config theme choose Mrak
 # Emulates vim's cursor shape behavior
 set fish_cursor_default block
 set fish_cursor_insert line
