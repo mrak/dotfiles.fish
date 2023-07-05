@@ -1,6 +1,6 @@
 # name: 'Mrak'
 # preferred_background: '#262626'
-# vim: ft=fish
+
 set fish_color_user blue
 set fish_color_host magenta
 set fish_color_cwd green
