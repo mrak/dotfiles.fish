@@ -1,3 +1,3 @@
-function fucking --description "sudo"
+function fucking --wraps sudo --description "sudo"
 	sudo $argv;
 end

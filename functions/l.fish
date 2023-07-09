@@ -1,14 +1,14 @@
 switch (uname)
     case Linux
-        function l --description "ls without hidden files"
+        function l --wraps ls --description "ls without hidden files"
             ls --ignore=".*" $argv
         end
     case Darwin
-        function l --description "ls without hidden files"
+        function l --wraps ls --description "ls without hidden files"
             command ls -Fh $argv
         end
     case '*'
-        function ls
+        function l --wraps ls
             command ls $argv
         end
 end

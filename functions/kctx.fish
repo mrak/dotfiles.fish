@@ -1,3 +1,3 @@
-function kctx --wraps=kubectl --description kubectx
+function kctx --wraps=kubectx --description kubectx
     command kubectx $argv
 end

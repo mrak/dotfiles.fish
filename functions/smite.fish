@@ -1,3 +1,3 @@
-function smite
-	kill $argv; 
+function smite --wraps kill
+	kill $argv;
 end

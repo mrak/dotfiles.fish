@@ -1,4 +1,4 @@
-function ll --description "ls -l"
+function ll --wraps ls --description "ls -l"
     ls -lh $argv
 end
 
