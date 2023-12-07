@@ -1,7 +1,7 @@
 switch (uname)
     case Linux
         function upgrade --description 'updates system packages'
-            sudo pacman -Syu
+            paccache -rk2; and paccache -ruk0; and sudo pacman -Syu
         end
     case Darwin
         function upgrade --description 'Update and upgrade all brew packages'
