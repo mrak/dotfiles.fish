@@ -1,3 +1,3 @@
 function unifi-controller
-    sudo docker compose up --project-directory ~/.config/unifi
+    sudo docker compose --project-directory ~/.config/unifi up
 end
