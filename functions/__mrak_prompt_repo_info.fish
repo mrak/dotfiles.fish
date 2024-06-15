@@ -1,21 +1,9 @@
-function __mrak_prompt_repo_info --description "prompt info for git, svn, and hg"
+function __mrak_prompt_repo_info --description "prompt info for git"
     set -l folder '.'
 
     for i in (seq 0 (pwd|tr -cd '/'|wc -c))
         if [ -r $folder/.git ]; and [ -d $folder/.git ]
             __git_state $folder
-            break
-        end
-        if [ -r $folder/.svn ]; and [ -d $folder/.svn ]
-            __svn_state
-            break
-        end
-        if [ -r $folder/_darcs ]; and [ -d $folder/_darcs ]
-            __darcs_state
-            break
-        end
-        if [ -r $folder/.hg ]; and [ -d $folder/.hg ]
-            __hg_state
             break
         end
         set folder ../$folder
@@ -32,8 +20,8 @@ function __git_state --description "git state for fish prompt"
     set -l git_dot_dir $__git_dir/.git
     [ -z $git_dot_dir ]; and return
 
-    set -l merging "∪"
-    set -l rebasing "⊆"
+    set -l merging "∑"
+    set -l rebasing "↨"
     set -l bisecting "%"
     set -l cherry "¤"
 
@@ -127,74 +115,5 @@ function __git_state --description "git state for fish prompt"
         set_color brred
         printf $unmerged[1]
     end
-    set_color normal
-end
-
-function __svn_state --description "svn state for fish prompt"
-    set -g __mrak_prompt_symbol "⚡" "blue"
-    command -s >/dev/null; or return
-
-    set_color blue
-    svn info | awk '$1 == "Revision:" { print $2 }' | tr -d \n
-
-    set -l modified "±"
-    set -l added "+"
-    set -l removed "\-"
-    set -l missing "!"
-    set -l untracked "?"
-
-    printf ' '
-    set_color brblack
-    # use string for ± since tr doesn't respect unicode
-    svn status 2>/dev/null | string sub -l 1 \
-                           | sort -u \
-                           | tr -d \n \
-                           | string replace M $modified \
-                           | tr 'AD?!' {$added}{$removed}{$untracked}{$missing}
-    set_color normal
-end
-
-function __hg_state --description "hg state for fish prompt"
-    set -g __mrak_prompt_symbol "☿" "magenta"
-    command -s hg; or return
-
-    set_color magenta;
-    hg branch 2>/dev/null | tr -d \n
-
-    set -l modified "±"
-    set -l added "+"
-    set -l removed "\-"
-    set -l missing "!"
-    set -l untracked "?"
-
-    printf ' '
-    set_color brblack
-    # use string for ± since tr doesn't respect unicode
-    hg status 2>/dev/null | string sub -l 1 \
-                          | sort -u \
-                          | tr -d \n \
-                          | string replace M $modified \
-                          | tr 'AD?!' {$added}{$removed}{$untracked}{$missing}
-    set_color normal
-end
-
-function __darcs_state --description "darcs state for fish prompt"
-    set -g __mrak_prompt_symbol "∗" "cyan"
-    command -s darcs; or return
-
-    set -l modified "±"
-    set -l added "+"
-    set -l removed "\-"
-
-    set_color cyan
-    printf '%s ' darcs
-
-    set_color brblack
-    # use string for ± since tr doesn't respect unicode
-    darcs whatsnew -s 2>/dev/null | string sub -l 1 \
-                                  | sort -u \
-                                  | tr -d \n \
-                                  | string replace M $modified \
-                                  | tr 'AR' {$added}{$removed}
     set_color normal
 end
