@@ -1,4 +1,4 @@
 function ,v --description "Open init.vim for editing"
-    env $EDITOR $XDG_CONFIG_HOME/nvim/init.vim $argv
+    env -C $XDG_CONFIG_HOME/nvim $EDITOR init.vim $argv
 end
 
