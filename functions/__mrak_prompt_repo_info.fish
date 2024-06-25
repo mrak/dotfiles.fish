@@ -37,7 +37,7 @@ function __git_state --description "git state for fish prompt"
     set -l unmerged "!" false
 
     if [ -f $git_dot_dir/rebase-merge/interactive ]
-       set __mrak_prompt_symbol[1] $rebasing">"
+       set __mrak_prompt_symbol[1] $rebasing
     else if [ -d $git_dot_dir/rebase-merge ]
        set __mrak_prompt_symbol[1] $rebasing$merging
     else
