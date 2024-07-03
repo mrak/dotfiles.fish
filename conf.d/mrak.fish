@@ -16,6 +16,8 @@ for fzf_dir in /opt/homebrew/opt/fzf/ /usr/local/opt/fzf/
     end
 end
 
+command -q mise; and mise activate fish | source
+
 fish_add_path -P -m -g "$XDG_DATA_BIN"
 
 command -q python; and eval (python -m virtualfish 2>/dev/null)
