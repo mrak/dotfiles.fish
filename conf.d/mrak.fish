@@ -42,5 +42,23 @@ set fish_cursor_insert line
 set fish_cursor_replace underscore
 set fish_cursor_replace_one underscore
 set fish_cursor_visual block
+# git prompt
+set __fish_git_prompt_showdirtystate 1
+set __fish_git_prompt_char_dirtystate ±
+set __fish_git_prompt_color_dirtystate brblack
+set __fish_git_prompt_char_invalidstate !
+set __fish_git_prompt_char_stagedstate =
+set __fish_git_prompt_color_stagedstate brblack
+set __fish_git_prompt_char_untrackedfiles ?
+set __fish_git_prompt_showupstream 1
+set __fish_git_prompt_char_upstream_ahead ↑
+set __fish_git_prompt_char_upstream_behind ↓
+set __fish_git_prompt_char_upstream_diverged ↑↓
+set __fish_git_prompt_char_upstream_equal ''
+set __fish_git_prompt_showcolorhints 1
+set __fish_git_prompt_color_flags brblack
+set __fish_git_prompt_color_branch_detached yellow
+set __fish_git_prompt_color_branch_dirty yellow
+set __fish_git_prompt_color_branch_staged yellow
 
 complete --command a --wraps aura

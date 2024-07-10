@@ -13,12 +13,6 @@ function __mrak_prompt_symbol
         end
     end
 
-    if set -q __mrak_prompt_symbol
-        set symbol $__mrak_prompt_symbol[1]
-        set_color $__mrak_prompt_symbol[2]
-        set -e __mrak_prompt_symbol
-    end
-
     for lvl in (seq 1 $SHLVL)
         printf $symbol
     end
