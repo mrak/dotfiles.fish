@@ -57,6 +57,7 @@ set __fish_git_prompt_char_upstream_diverged ↑↓
 set __fish_git_prompt_char_upstream_equal ''
 set __fish_git_prompt_showcolorhints 1
 set __fish_git_prompt_color_flags brblack
+set __fish_git_prompt_color_branch yellow
 set __fish_git_prompt_color_branch_detached yellow
 set __fish_git_prompt_color_branch_dirty yellow
 set __fish_git_prompt_color_branch_staged yellow
