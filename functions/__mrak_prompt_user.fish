@@ -1,5 +1,5 @@
 function __mrak_prompt_user
-    if [ $USER = "root" ]
+    if [ $USER = root ]
         set_color red
     else
         set_color $fish_color_user

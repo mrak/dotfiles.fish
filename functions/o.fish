@@ -8,4 +8,3 @@ switch (uname)
             command open $argv
         end
 end
-

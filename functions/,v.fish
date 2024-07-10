@@ -3,4 +3,3 @@ function ,v --description "Open init.vim for editing"
     env $EDITOR init.vim $argv
     popd
 end
-

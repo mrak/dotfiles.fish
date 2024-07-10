@@ -1,3 +1,3 @@
 function cdaur
-	cd $DEV_HOME/AUR
+    cd $DEV_HOME/AUR
 end

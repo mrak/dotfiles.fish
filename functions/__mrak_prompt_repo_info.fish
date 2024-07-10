@@ -13,7 +13,7 @@ function __mrak_prompt_repo_info --description "prompt info for git"
 end
 
 function __git_state --description "git state for fish prompt"
-    set -g __mrak_prompt_symbol "∓" "yellow"
+    set -g __mrak_prompt_symbol "∓" yellow
     command -s git >/dev/null; or return
 
     set -l __git_dir $argv[1]
@@ -27,7 +27,7 @@ function __git_state --description "git state for fish prompt"
 
     set -l untracked "?" false
     set -l modified "±" false
-    set -l deleted "-" false
+    set -l deleted - false
     set -l staged "=" false
 
     set -l ahead "↑"
@@ -37,27 +37,27 @@ function __git_state --description "git state for fish prompt"
     set -l unmerged "!" false
 
     if [ -f $git_dot_dir/rebase-merge/interactive ]
-       set __mrak_prompt_symbol[1] $rebasing
+        set __mrak_prompt_symbol[1] $rebasing
     else if [ -d $git_dot_dir/rebase-merge ]
-       set __mrak_prompt_symbol[1] $rebasing$merging
+        set __mrak_prompt_symbol[1] $rebasing$merging
     else
-       if [ -d $git_dot_dir/rebase-apply ]
-          if [ -f $git_dot_dir/rebase-apply/rebasing ]
-             set __mrak_prompt_symbol[1] $rebasing
-          else if [ -f $git_dot_dir/rebase-apply/applying ]
-             set __mrak_prompt_symbol[1] "AM"
-          else
-             set __mrak_prompt_symbol[1] "AM/REBASE"
-          end
-       else if [ -f $git_dot_dir/MERGE_HEAD ]
-          set __mrak_prompt_symbol[1] $merging
-       else if [ -f $git_dot_dir/MERGE_MSG ]
-          set __mrak_prompt_symbol[1] $merging
-       else if [ -f $git_dot_dir/CHERRY_PICK_HEAD ]
-          set __mrak_prompt_symbol[1] $cherry
-       else if [ -f $git_dot_dir/BISECT_LOG ]
-          set __mrak_prompt_symbol[1] $bisecting
-      end
+        if [ -d $git_dot_dir/rebase-apply ]
+            if [ -f $git_dot_dir/rebase-apply/rebasing ]
+                set __mrak_prompt_symbol[1] $rebasing
+            else if [ -f $git_dot_dir/rebase-apply/applying ]
+                set __mrak_prompt_symbol[1] AM
+            else
+                set __mrak_prompt_symbol[1] AM/REBASE
+            end
+        else if [ -f $git_dot_dir/MERGE_HEAD ]
+            set __mrak_prompt_symbol[1] $merging
+        else if [ -f $git_dot_dir/MERGE_MSG ]
+            set __mrak_prompt_symbol[1] $merging
+        else if [ -f $git_dot_dir/CHERRY_PICK_HEAD ]
+            set __mrak_prompt_symbol[1] $cherry
+        else if [ -f $git_dot_dir/BISECT_LOG ]
+            set __mrak_prompt_symbol[1] $bisecting
+        end
     end
 
     set -l g ""

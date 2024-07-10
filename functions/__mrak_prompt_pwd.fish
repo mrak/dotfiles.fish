@@ -1,5 +1,5 @@
 function __mrak_prompt_pwd
-    if [ $USER = "root" ]
+    if [ $USER = root ]
         set_color $fish_color_cwd_root
     else
         set_color $fish_color_cwd

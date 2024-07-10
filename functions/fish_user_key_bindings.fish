@@ -3,7 +3,7 @@ function fish_user_key_bindings
     fish_vi_key_bindings --no-erase insert
 
     type -q fzf_key_bindings; and fzf_key_bindings
-    bind \e. 'history-token-search-backward'
+    bind \e. history-token-search-backward
 
     bind -k ppage history-search-backward
     switch $TERM

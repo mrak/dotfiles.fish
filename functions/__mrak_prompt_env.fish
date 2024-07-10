@@ -5,4 +5,3 @@ function __mrak_prompt_env
         set_color normal
     end
 end
-

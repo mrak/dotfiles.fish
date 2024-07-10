@@ -1,4 +1,4 @@
-if [ (uname) = "Darwin" ]
+if [ (uname) = Darwin ]
     function orphans --description "find packages that are uneeded"
         brew autoremove
     end
