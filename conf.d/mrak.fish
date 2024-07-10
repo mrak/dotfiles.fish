@@ -60,6 +60,5 @@ set __fish_git_prompt_color_flags brblack
 set __fish_git_prompt_color_branch yellow
 set __fish_git_prompt_color_branch_detached yellow
 set __fish_git_prompt_color_branch_dirty yellow
-set __fish_git_prompt_color_branch_staged yellow
 
 complete --command a --wraps aura
