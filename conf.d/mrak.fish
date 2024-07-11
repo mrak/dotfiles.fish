@@ -86,3 +86,15 @@ abbr --position command --add cdabs --set-cursor=% cd /var/abs/%
 abbr --position command --add glsg git ls-files \| grep
 abbr --position command --add xrdbmerge xrdb -quiet -merge \$HOME/.Xresources
 abbr --position command --add serve python3 -m http.server
+switch (uname)
+    case Linux
+        abbr --position command --add o xdg-open
+        abbr --position command --add orphans sudo pacman -Rs \(pacman -Qqdt\)
+        abbr --position command --add upgrade paccache -rk2\; and paccache -ruk0\; and sudo pacman -Syu
+        abbr --position command --add psg ps -eo pid,user,start_time,cmd --sort -etime \| grep -Fv grep \| grep -E
+    case Darwin
+        abbr --position command --add o open
+        abbr --position command --add orphans brew autoremove
+        abbr --position command --add upgrade brew update\; and brew upgrade
+        abbr --position command --add psg ps -eo pid,user,start,command \| grep -Fv grep \| grep -E
+end
