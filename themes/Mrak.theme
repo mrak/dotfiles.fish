@@ -9,6 +9,7 @@ fish_color_autosuggestion brblack
 fish_color_command FFAA00
 fish_color_keyword red
 fish_color_comment brblack
+fish_color_cancel brblack
 fish_color_cwd green
 fish_color_cwd_root red
 fish_color_end magenta
