@@ -72,8 +72,17 @@ abbr --position command --add kctx kubectx
 abbr --position command --add p pacman
 abbr --position command --add a aura
 abbr --position command --add tf terraform
-abbr --position command --add v $VISUAL
-abbr --position command --add e $EDITOR
+abbr --position command --add v env \$VISUAL
+abbr --position command --add e env \$EDITOR
 abbr --position command --add ne npm-exec
 abbr --position command --add be bundle exec
 abbr --position command --add rmrf rm -rf
+abbr --position command --add cdd --set-cursor=% cd \$DEV_HOME/%
+abbr --position command --add cdp --set-cursor=% cd \$DEV_HOME/Projects/%
+abbr --position command --add cds --set-cursor=% cd \$DEV_HOME/Sources/%
+abbr --position command --add cdbuild --set-cursor=% cd \$DEV_HOME/PKGBUILDs/%
+abbr --position command --add cdaur --set-cursor=% cd \$DEV_HOME/AUR/%
+abbr --position command --add cdabs --set-cursor=% cd /var/abs/%
+abbr --position command --add glsg git ls-files \| grep
+abbr --position command --add xrdbmerge xrdb -quiet -merge \$HOME/.Xresources
+abbr --position command --add serve python3 -m http.server
