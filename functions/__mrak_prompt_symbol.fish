@@ -7,7 +7,7 @@ function __mrak_prompt_symbol
         set symbol '#'
     else
         if [ $__mrak_prompt_status = 0 ]
-            set_color green
+            set_color --dim
         else
             set_color red
         end
