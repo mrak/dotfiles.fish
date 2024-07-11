@@ -1,31 +1,30 @@
 # name: 'Mrak'
 # preferred_background: '#262626'
 
-fish_color_user blue
-fish_color_host magenta
-fish_color_host_remote magenta
+fish_color_user magenta
+fish_color_host red
+fish_color_host_remote red
 fish_color_cwd green
 fish_color_autosuggestion brblack
-fish_color_command FFAA00
+fish_color_command blue
 fish_color_keyword red
 fish_color_comment brblack
 fish_color_cancel brblack
 fish_color_cwd green
 fish_color_cwd_root red
-fish_color_end magenta
+fish_color_end cyan
 fish_color_error --bold --underline red
 fish_color_escape cyan
 fish_color_history_current --bold
-fish_color_match green
 fish_color_normal normal
 fish_color_option --dim white
 fish_color_operator cyan
 fish_color_param normal
-fish_color_quote green
+fish_color_quote FFAA00
 fish_color_redirection magenta
 fish_color_search_match bryellow --background=brblack
 fish_color_selection white --bold --background=brblack
-fish_color_valid_path blue
+fish_color_valid_path green
 fish_color_status brblack
 fish_pager_color_description brblack
 fish_pager_color_selected_background --background=#111111
