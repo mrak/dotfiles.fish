@@ -63,6 +63,17 @@ set __fish_git_prompt_color_branch yellow
 set __fish_git_prompt_color_branch_detached yellow
 set __fish_git_prompt_color_branch_dirty yellow
 
-complete --command a --wraps aura
 abbr --add dotdot --regex '^\.\.+$' --function __mrak_dotdot
 abbr --add !! --position anywhere --function __mrak_last_history_item
+abbr --position command --add g git
+abbr --position command --add k kubectl
+abbr --position command --add kns kubens
+abbr --position command --add kctx kubectx
+abbr --position command --add p pacman
+abbr --position command --add a aura
+abbr --position command --add tf terraform
+abbr --position command --add v $VISUAL
+abbr --position command --add e $EDITOR
+abbr --position command --add ne npm-exec
+abbr --position command --add be bundle exec
+abbr --position command --add rmrf rm -rf
