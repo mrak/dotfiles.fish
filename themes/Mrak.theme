@@ -26,3 +26,6 @@ fish_color_search_match bryellow --background=brblack
 fish_color_selection white --bold --background=brblack
 fish_color_valid_path blue
 fish_color_status brblack
+fish_pager_color_description brblack
+fish_pager_color_selected_background --background=#111111
+fish_pager_color_prefix --dim white
