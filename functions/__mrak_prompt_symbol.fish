@@ -1,4 +1,4 @@
-function __mrak_prompt_symbol
+function __mrak_prompt_symbol -a last_status
     #set -l symbol ∫
     set -l symbol λ
 
@@ -6,8 +6,8 @@ function __mrak_prompt_symbol
         set_color red
         set symbol '#'
     else
-        if [ $__mrak_prompt_status = 0 ]
-            set_color --dim
+        if [ $last_status = 0 ]
+            set_color --dim white
         else
             set_color red
         end

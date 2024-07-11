@@ -1,9 +1,7 @@
 function fish_right_prompt
-    if [ ! $__mrak_prompt_status = 0 ]
-        set_color brblack
-        printf '%s' $__mrak_prompt_status
-        set_color normal
-    end
-
-    set -e __mrak_prompt_status
+    set -l last_status $status
+    [ $last_status = 0 ]; and return
+    set_color brblack
+    fish_status_to_signal $last_status
+    set_color normal
 end
