@@ -3,6 +3,7 @@
 
 fish_color_user blue
 fish_color_host magenta
+fish_color_host_remote magenta
 fish_color_cwd green
 fish_color_autosuggestion 555
 fish_color_command 005fd7
