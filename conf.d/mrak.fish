@@ -63,7 +63,7 @@ set __fish_git_prompt_color_branch yellow
 set __fish_git_prompt_color_branch_detached yellow
 set __fish_git_prompt_color_branch_dirty yellow
 
-abbr --add dotdot --regex '^\.\.+$' --function __mrak_dotdot
+abbr --add ... --regex '^\.\.+$' --function __mrak_dotdotdot
 abbr --add !! --position anywhere --function __mrak_last_history_item
 abbr --position command --add g git
 abbr --position command --add k kubectl
