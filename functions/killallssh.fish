@@ -1,3 +1,3 @@
 function killallssh
-    ps -ef | grep -Fv awk | awk '/(ssh: .* \[mux\]| ssh )/ {print $2}' | xargs kill
+    ps -ef | awk '/(ssh: .* \[mux\]| ssh )/ && !/awk/ {print $2}' | xargs kill
 end
