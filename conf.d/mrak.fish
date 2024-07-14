@@ -48,6 +48,7 @@ set __fish_git_prompt_color_flags brblack
 set __fish_git_prompt_color_branch yellow
 set __fish_git_prompt_color_branch_detached yellow
 set __fish_git_prompt_color_branch_dirty yellow
+set __fish_git_prompt_color_merging brblack
 
 abbr --add ... --regex '^\.\.+$' --function __mrak_abbr_dotdotdot
 abbr --add !! --position anywhere --function __mrak_abbr_bangbang
