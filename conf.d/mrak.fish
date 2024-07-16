@@ -50,6 +50,8 @@ set __fish_git_prompt_color_branch_detached yellow
 set __fish_git_prompt_color_branch_dirty yellow
 set __fish_git_prompt_color_merging brblack
 
+complete --command xhs --wraps xh
+
 abbr --add ... --regex '^\.\.+$' --function __mrak_abbr_dotdotdot
 abbr --add !! --position anywhere --function __mrak_abbr_bangbang
 abbr --position command --add g git
