@@ -1,4 +1,4 @@
-function j --description "jump around"
+function j --description "jump around" --wraps z
     if count $argv > /dev/null
         __z $argv
     else
