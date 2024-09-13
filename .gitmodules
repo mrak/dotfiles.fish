@@ -1,0 +1,4 @@
+[submodule "plugins/z"]
+	path = plugins/z
+	url = https://github.com/jethrokuan/z
+  shallow = true
