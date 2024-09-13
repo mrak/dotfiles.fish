@@ -1,7 +1,2 @@
-This repository is designed with [fisher](fisherman.sh) in mind.
-
-To install:
-
-```console
-$ fisher github.com/mrak/dotfiles.fish
-```
+To use, clone to `~/.config/fish` and run `make` to download any plugin
+submodules.
