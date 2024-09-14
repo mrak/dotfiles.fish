@@ -1,4 +1,4 @@
-for plugin in (find $__fish_config_dir/plugins -type d -not -path plugins -depth 1)
+for plugin in $__fish_config_dir/plugins/*
     if [ -d $plugin/completions ]; and not contains $plugin/completions $fish_complete_path
         set fish_complete_path $plugin/completions $fish_complete_path
     end
