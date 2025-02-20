@@ -71,6 +71,7 @@ abbr --position command --add cds --set-cursor=% cd \$DEV_HOME/Sources/%
 abbr --position command --add glsg git ls-files \| grep
 abbr --position command --add xrdbmerge xrdb -quiet -merge \$HOME/.Xresources
 abbr --position command --add serve python3 -m http.server
+abbr --position command --add o open
 switch (uname)
     case Linux
         abbr --position command --add cdbuild --set-cursor=% cd \$DEV_HOME/PKGBUILDs/%
@@ -80,12 +81,10 @@ switch (uname)
         abbr --position command --add a aura
         abbr --position command --add repkg makepkg -scrfi
 
-        abbr --position command --add o xdg-open
         abbr --position command --add orphans sudo pacman -Rs \(pacman -Qqdt\)
         abbr --position command --add upgrade paccache -rk2\; and paccache -ruk0\; and sudo pacman -Syu
         abbr --position command --add psg ps -eo pid,user,start_time,cmd --sort -etime \| grep -Fv grep \| grep -E
     case Darwin
-        abbr --position command --add o open
         abbr --position command --add orphans brew autoremove
         abbr --position command --add upgrade brew update\; and brew upgrade
         abbr --position command --add psg ps -eo pid,user,start,command \| grep -Fv grep \| grep -E
