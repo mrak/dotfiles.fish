@@ -9,18 +9,6 @@ end
 
 command -q mise; and mise activate fish | source
 
-# if the terminal supports it, set keyboard_transmit mode
-# fixes st
-if tput smkx 2>/dev/null
-    function mrak_disable_keypad_transmit --on-event fish_preexec
-        tput rmkx 2>/dev/null
-    end
-
-    function mrak_enable_keypad_transmit --on-event fish_postexec
-        tput smkx 2>/dev/null
-    end
-end
-
 fish_config theme choose Mrak
 # Emulates vim's cursor shape behavior
 set fish_cursor_default block
