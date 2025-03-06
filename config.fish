@@ -78,6 +78,8 @@ switch (uname)
         abbr --position command --add psg ps -eo pid,user,start,command \| grep -Fv grep \| grep -E
 end
 
+abbr --command terraform -- ws workspace
+
 # git aliases
 abbr --command git -- br branch
 abbr --command git -- ca commit --amend --no-edit
