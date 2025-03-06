@@ -77,3 +77,21 @@ switch (uname)
         abbr --position command --add upgrade brew update\; and brew upgrade
         abbr --position command --add psg ps -eo pid,user,start,command \| grep -Fv grep \| grep -E
 end
+
+# git aliases
+abbr --command git -- br branch
+abbr --command git -- ca commit --amend --no-edit
+abbr --command git -- co checkout
+abbr --command git -- dt difftool
+abbr --command git -- mt mergetool
+abbr --command git -- st status --short --branch
+abbr --command git -- staged diff --cached
+abbr --command git -- sw switch
+abbr --command git -- pf push --force-with-lease
+abbr --command git -- po push origin
+abbr --command git -- pr pull --rebase
+abbr --command git -- sp stash pop
+abbr --command git -- lg log "--pretty='%C(yellow)%h %C(blue)%an%C(green)%d %Creset%s'" --no-merges
+abbr --command git -- ma merge --abort
+abbr --command git -- ra rebase --abort
+abbr --command git -- rc rebase --continue
