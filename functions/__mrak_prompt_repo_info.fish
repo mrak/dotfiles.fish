@@ -1,12 +1,12 @@
 function __mrak_prompt_repo_info --description "prompt info for git"
-    set -l folder '.'
+    set -l folder $PWD
 
-    for i in (seq 0 (pwd|tr -cd '/'|wc -c))
+    while true
         if [ -r $folder/.git ]; and [ -d $folder/.git ]
             __git_state $folder
             break
         end
-        set folder ../$folder
+        set folder (path dirname $folder); or break
     end
 
     set_color normal
