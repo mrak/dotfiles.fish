@@ -62,14 +62,14 @@ function __git_state --description "git state for fish prompt"
 
     set -l g ""
     if [ $UNAME = Darwin ]
-        set g (git -C $__git_dir status -uno --ignore-submodules=dirty --porcelain -b 2>/dev/null)
+        set g (git -C $__git_dir --no-optional-locks status -uno --ignore-submodules=dirty --porcelain -b 2>/dev/null)
     else
-        set g (git -C $__git_dir status -uno --ignore-submodules=dirty --porcelain -b | uniq -w 2 2>/dev/null)
+        set g (git -C $__git_dir --no-optional-locks status -uno --ignore-submodules=dirty --porcelain -b | uniq -w 2 2>/dev/null)
     end
 
     set_color yellow
     if string match -qr '^## HEAD' $g[1]
-        set -l tag (git -C $__git_dir tag --points-at HEAD) ∅
+        set -l tag (git -C $__git_dir --no-optional-locks tag --points-at HEAD) ∅
         printf $tag[1]
     else
         string replace -ra '(^## |\.\.\..*$)' '' $g[1] | tr -d \n
