@@ -76,7 +76,7 @@ function __git_state --description "git state for fish prompt"
     if string match -qr '^## HEAD' $g[1]
         __git_ongoing $git_dot_dir
     else
-        string replace -ra '(^## |\.\.\..*$)' '' $g[1] | tr -d \n
+        string replace -ra '(^## |\.\.\..*$)' '' $g[1]
         switch $g[1]
             case '* [ahead *, behind *]'
                 printf ' %s' $diverged
