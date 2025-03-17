@@ -62,9 +62,9 @@ function __git_state --description "git state for fish prompt"
 
     set -l g ""
     if [ (uname) = Darwin ]
-        set g (git -C $__git_dir status -uno --porcelain -b 2>/dev/null)
+        set g (git -C $__git_dir status -uno --ignore-submodules=dirty --porcelain -b 2>/dev/null)
     else
-        set g (git -C $__git_dir status -uno --porcelain -b | uniq -w 2 2>/dev/null)
+        set g (git -C $__git_dir status -uno --ignore-submodules=dirty --porcelain -b | uniq -w 2 2>/dev/null)
     end
 
     set_color yellow
