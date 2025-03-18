@@ -3,7 +3,7 @@ function __mrak_prompt_repo_info --description "prompt info for git"
 
     set -l git_dir $PWD
     while true
-        if [ -r $git_dir/.git ]; and [ -d $git_dir/.git ]
+        if [ -r $git_dir/.git -a -d $git_dir/.git ]
             break
         end
         set git_dir (path dirname $git_dir); or return
