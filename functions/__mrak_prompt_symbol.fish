@@ -14,9 +14,8 @@ function __mrak_prompt_symbol -a last_status
         end
     end
 
+    set_color normal
     for lvl in (seq 1 $SHLVL)
         printf $symbol
     end
-
-    set_color normal
 end

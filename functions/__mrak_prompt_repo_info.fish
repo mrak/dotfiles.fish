@@ -100,13 +100,10 @@ function __mrak_prompt_repo_info --description "prompt info for git"
 
     printf %s ' '
     if test $unmerged[2] = true
-        set_color brred
-        printf %s $unmerged[1]
+        printf %s%s (set_color brred) $unmerged[1]
     end
     set_color brblack
     for worktree in staged modified deleted untracked
         test $$worktree[1][2] = true; and printf %s $$worktree[1][1]
     end
-
-    set_color normal
 end

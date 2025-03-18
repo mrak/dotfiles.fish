@@ -12,5 +12,5 @@ function fish_prompt
         (__mrak_prompt_k8s)                \
         (__mrak_prompt_repo_info)          \
 
-    string join ' ' -- (__mrak_prompt_env) (__mrak_prompt_symbol $last_status) (__mrak_prompt_jobs) ''
+    string join ' ' -- (__mrak_prompt_env) (__mrak_prompt_symbol $last_status) (__mrak_prompt_jobs) (set_color normal)
 end
