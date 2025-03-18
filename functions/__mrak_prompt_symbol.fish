@@ -5,11 +5,11 @@ function __mrak_prompt_symbol -a last_status
     #set -l symbol_nonzero 😈
     set -l symbol_nonzero ☠️
 
-    if [ $USER = root ]
+    if test $USER = root
         set_color red
         set symbol '#'
     else
-        if [ ! $last_status = 0 ]
+        if test ! $last_status = 0
             set symbol $symbol_nonzero
         end
     end
