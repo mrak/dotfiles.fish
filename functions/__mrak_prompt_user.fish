@@ -5,14 +5,14 @@ function __mrak_prompt_user
         set_color $fish_color_user
     end
 
-    printf $USER
+    printf %s $USER
 
     if set -q SSH_CONNECTION
         set_color brblack
         printf @
         set_color normal
         set_color $fish_color_host
-        printf '%s' $hostname
+        printf %s $hostname
     end
 
     set_color normal
