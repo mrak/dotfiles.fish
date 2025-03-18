@@ -3,7 +3,7 @@ function __mrak_prompt_repo_info --description "prompt info for git"
 
     set -l git_dir $PWD
     while true
-        if [ -r $git_dir/.git -a -d $git_dir/.git ]
+        if test -r $git_dir/.git -a -d $git_dir/.git
             break
         end
         set git_dir (path dirname $git_dir); or return
@@ -29,32 +29,32 @@ function __mrak_prompt_repo_info --description "prompt info for git"
     set -l branch
     set -l state
     set -l g ""
-    if [ $UNAME = Darwin ]
+    if test "$UNAME" = Darwin
         set g (git -C $git_dir --no-optional-locks status -uno --ignore-submodules=dirty --porcelain -b 2>/dev/null)
     else
         set g (git -C $git_dir --no-optional-locks status -uno --ignore-submodules=dirty --porcelain -b | uniq -w 2 2>/dev/null)
     end
 
-    if [ -d $git_dot_dir/rebase-merge ]
+    if test -d $git_dot_dir/rebase-merge
         set state $rebasing
-        if [ -f $git_dot_dir/rebase-merge/head-name ]
+        if test -f $git_dot_dir/rebase-merge/head-name
             set branch (string replace -r '^.*/' '' < "$git_dot_dir/rebase-merge/head-name")
         end
-    else if [ -d $git_dot_dir/rebase-apply ]
+    else if test -d $git_dot_dir/rebase-apply
         set state $rebasing
-        if [ -f $git_dot_dir/rebase-apply/rebasing ]
-            if [ -f $git_dot_dir/rebase-apply/head-name ]
+        if test -f $git_dot_dir/rebase-apply/rebasing
+            if test -f $git_dot_dir/rebase-apply/head-name
                 set branch (string replace -r '^.*/' '' < "$git_dot_dir/rebase-merge/head-name")
             end
         end
-    else if [ -f $git_dot_dir/MERGE_HEAD ]
+    else if test -f $git_dot_dir/MERGE_HEAD
         set state $merging
-    else if [ -f $git_dot_dir/CHERRY_PICK_HEAD ]
+    else if test -f $git_dot_dir/CHERRY_PICK_HEAD
         set state $cherry
-    else if [ -f $git_dot_dir/BISECT_LOG ]
+    else if test -f $git_dot_dir/BISECT_LOG
         set state $bisecting
     end
-    if [ -z $branch ]
+    if test -z $branch
         if string match -qr '^## HEAD' $g[1]
             set -l tag (git -C $git_dir --no-optional-locks tag --points-at HEAD) $nobranch
             set branch $tag[1]
@@ -65,17 +65,17 @@ function __mrak_prompt_repo_info --description "prompt info for git"
 
     switch $g[1]
         case '* [ahead *, behind *]'
-            set state $state $diverged
+            set state $diverged $state
         case '* [ahead *]'
-            set state $state $ahead
+            set state $ahead $state
         case '* [behind *]'
-            set state $state $behind
+            set state $behind $state
     end
 
     printf %s%s (set_color yellow) $branch
-    [ (count $state) -gt 0 ]; and printf ' %s' $state
+    test (count $state) -gt 0; and string join '' ' ' $state
 
-    [ (count $g) -eq 1 ]; and return
+    test (count $g) -eq 1; and return
     for l in $g[2..-1]
         switch (string sub -l 2 $l)
             case '\?\?'
@@ -99,13 +99,13 @@ function __mrak_prompt_repo_info --description "prompt info for git"
     end
 
     printf %s ' '
-    if [ $unmerged[2] = true ]
+    if test $unmerged[2] = true
         set_color brred
         printf %s $unmerged[1]
     end
     set_color brblack
     for worktree in staged modified deleted untracked
-        [ $$worktree[1][2] = true ]; and printf %s $$worktree[1][1]
+        test $$worktree[1][2] = true; and printf %s $$worktree[1][1]
     end
 
     set_color normal
