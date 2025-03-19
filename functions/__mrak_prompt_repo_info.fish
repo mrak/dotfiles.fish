@@ -28,12 +28,7 @@ function __mrak_prompt_repo_info --description "prompt info for git"
 
     set -l branch
     set -l state
-    set -l g ""
-    if test "$UNAME" = Darwin
-        set g (git -C $git_dir --no-optional-locks status -uno --ignore-submodules=dirty --porcelain -b 2>/dev/null)
-    else
-        set g (git -C $git_dir --no-optional-locks status -uno --ignore-submodules=dirty --porcelain -b | uniq -w 2 2>/dev/null)
-    end
+    set -l g (git -C $git_dir --no-optional-locks status -uno --ignore-submodules=dirty --porcelain -b 2>/dev/null)
 
     if test -d $git_dot_dir/rebase-merge
         set state $rebasing
@@ -54,6 +49,7 @@ function __mrak_prompt_repo_info --description "prompt info for git"
     else if test -f $git_dot_dir/BISECT_LOG
         set state $bisecting
     end
+
     if test -z $branch
         if string match -qr '^## HEAD' $g[1]
             set -l tag (git -C $git_dir --no-optional-locks tag --points-at HEAD) $nobranch
