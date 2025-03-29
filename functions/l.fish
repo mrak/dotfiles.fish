@@ -1,14 +1,10 @@
-switch (uname)
-    case Linux
-        function l --wraps ls --description "ls without hidden files"
+function l --wraps ls --description "ls without hidden files"
+    switch $UNAME
+        case Linux
             ls --ignore=".*" $argv
-        end
-    case Darwin
-        function l --wraps ls --description "ls without hidden files"
+        case Darwin
             command ls -Fh $argv
-        end
-    case '*'
-        function l --wraps ls
+        case '*'
             command ls $argv
-        end
+    end
 end

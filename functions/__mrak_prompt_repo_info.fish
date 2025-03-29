@@ -50,7 +50,7 @@ function __mrak_prompt_repo_info --description "prompt info for git"
         set state $bisecting
     end
 
-    if test -z $branch
+    if test -z "$branch"
         if string match -qr '^## HEAD' $g[1]
             set -l tag (git -C $git_dir --no-optional-locks tag --points-at HEAD) $nobranch
             set branch $tag[1]

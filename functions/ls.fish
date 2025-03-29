@@ -1,14 +1,10 @@
-switch (uname)
-    case Linux
-        function ls --description "ls with bells and whistles"
+function ls --description "ls with bells and whistles"
+    switch $UNAME
+        case Linux
             command ls -AFC --color=auto $argv
-        end
-    case Darwin
-        function ls --description "ls with bells and whistles"
+        case Darwin
             command ls -AFh $argv
-        end
-    case '*'
-        function ls
+        case '*'
             command ls $argv
-        end
+    end
 end
