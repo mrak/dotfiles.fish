@@ -9,7 +9,7 @@ This avoids any issues with your login shell or `SHELL` being non-POSIX.
 # ~/.profile
 # If the shell is interactive, this file will be sourced, too.
 # Make sure this file is private: `chmod 600 $ENV`
-ENV="${HOME}/.conifg/sh/env
+ENV="${HOME}/.conifg/sh/env"
 
 # Cache the result of `uname` (it never changes) instead of
 # needing to repeatedly invoke it in scripts.
