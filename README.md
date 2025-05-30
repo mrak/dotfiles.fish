@@ -20,7 +20,7 @@ export ENV UNAME
 
 ```shell
 # ~/.config/sh/env
-if expr "$0" : '^-' >/dev/null; then
+if [ "x$(printf %.1s "$0")" = x- ]; then
   exec fish -l
 else
   exec fish
