@@ -1,9 +1,10 @@
 function __mrak_prompt_symbol -a last_status
     #set -l symbol ∫
-    #set -l symbol λ
-    set -l symbol 👻
+    set -l symbol λ
+    # set -l symbol 👻
+    set -l symbol_nonzero ⊥
     #set -l symbol_nonzero 😈
-    set -l symbol_nonzero ☠️
+    # set -l symbol_nonzero ☠️
 
     if test $USER = root
         set_color red
