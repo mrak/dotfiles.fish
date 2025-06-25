@@ -1,9 +1,7 @@
 function fish_right_prompt
     set -l last_status $status
+    test $last_status = 0; and return
     set_color $fish_color_status
-    # if test $last_status != 0
-    #     printf '(%s) ' (fish_status_to_signal $last_status)
-    # end
-    date +%T
+    fish_status_to_signal $last_status
     set_color normal
 end
