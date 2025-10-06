@@ -8,6 +8,7 @@ function mailgun --description "send email through the mailgun API"
         "f/from=" \
         "s/subject=" \
         "b/body=" \
+        "e/editor" \
         "a/attachment=+" \
         -- \
         $argv
@@ -15,6 +16,17 @@ function mailgun --description "send email through the mailgun API"
     if not set -ql _flag_to || not set -ql _flag_from
         echo "mailgun: options '-t/--to' and '-f/--from' are required" >&2
         return 1
+    end
+
+    if set -ql _flag_editor
+        set -l editor $VISUAL $EDITOR vi
+        set -l bodyfile (mktemp).txt
+        env $editor[1] $bodyfile
+        if test $status -ne 0
+            echo "Non-zero exit code while composing body. Exiting." >&2
+            return 1
+        end
+        set _flag_body "<$bodyfile"
     end
 
     for file in $_flag_attachment
