@@ -1,7 +1,7 @@
 # name: 'Mrak'
 # preferred_background: '#262626'
 
-fish_color_user magenta
+fish_color_user brblack
 fish_color_host red
 fish_color_host_remote red
 fish_color_cwd green
