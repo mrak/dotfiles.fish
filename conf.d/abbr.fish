@@ -9,6 +9,7 @@ abbr --add -- cdp       --set-cursor=% cd \$DEV_HOME/Projects/%
 abbr --add -- cds       --set-cursor=% cd \$DEV_HOME/Sources/%
 abbr --add -- e         env \$EDITOR
 abbr --add -- g         git
+abbr --add -- gcd       cd \(git rev-parse --show-toplevel\)
 abbr --add -- glsg      git ls-files \| grep
 abbr --add -- k         kubectl
 abbr --add -- kctx      kubectx
